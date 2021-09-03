@@ -33,10 +33,10 @@ public class WorkerResource {
 	private WorkerRepository repository;
 	
 	@GetMapping(value = "/configs")
-	public ResponseEntity<Void> getConfigs(){
+	public ResponseEntity<Void> getConfigs() {
 		logger.info("CONFIG = " + testConfig);
 		return ResponseEntity.noContent().build();
-	}
+	}	
 	
 	@GetMapping
 	public ResponseEntity<List<Worker>> findAll(){
@@ -47,8 +47,14 @@ public class WorkerResource {
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Worker> findbyId(@PathVariable Long id){
 		
+		try {
+			Thread.sleep(3000L);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		
-		logger.info("PORT = " + env.getProperty("local.serve.port"));
+		
+		logger.info("PORT = " + env.getProperty("local.server.port"));
 		
 		Worker obj = repository.findById(id).get();
 		return ResponseEntity.ok(obj);
