@@ -29,7 +29,7 @@ import com.devsuperior.hruser.repositories.UserRepository;
 		}
 		
 		@GetMapping(value = "/search")
-		public ResponseEntity<User> findbyId(@RequestParam String email){
+		public ResponseEntity<User> findbyEmail(@RequestParam String email){
 			User obj = repository.findByEmail(email);
 			return ResponseEntity.ok(obj);
 		}
