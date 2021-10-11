@@ -20,8 +20,8 @@ import com.devsuperior.hrworker.repositories.WorkerRepository;
 @RestController
 @RequestMapping(value = "/workers")
 public class WorkerResource {
-	private static Logger logger = LoggerFactory.getLogger(WorkerResource.class);
 	
+	private static Logger logger = LoggerFactory.getLogger(WorkerResource.class);
 	
 	@Autowired
 	private Environment env;
@@ -31,18 +31,19 @@ public class WorkerResource {
 	
 	@GetMapping(value = "/configs")
 	public ResponseEntity<Void> getConfigs() {
-
+		//logger.info("CONFIG = " + testConfig);
 		return ResponseEntity.noContent().build();
-	}	
+	}		
 	
 	@GetMapping
-	public ResponseEntity<List<Worker>> findAll(){
+	public ResponseEntity<List<Worker>> findAll() {
 		List<Worker> list = repository.findAll();
 		return ResponseEntity.ok(list);
-	}
+	}	
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Worker> findbyId(@PathVariable Long id){
+	public ResponseEntity<Worker> findById(@PathVariable Long id) {
+		
 		/*
 		try {
 			Thread.sleep(3000L);
@@ -55,6 +56,5 @@ public class WorkerResource {
 		
 		Worker obj = repository.findById(id).get();
 		return ResponseEntity.ok(obj);
-	}
-
+	}	
 }

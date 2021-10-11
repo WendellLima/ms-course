@@ -8,9 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
-@Table (name = "tb_worker")
+@Table(name = "tb_worker")
 public class Worker implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -20,8 +19,7 @@ public class Worker implements Serializable {
 	private String name;
 	private Double dailyIncome;
 	
-	public Worker () {
-		
+	public Worker() {
 	}
 
 	public Worker(Long id, String name, Double dailyIncome) {
@@ -34,6 +32,7 @@ public class Worker implements Serializable {
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -41,6 +40,7 @@ public class Worker implements Serializable {
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -48,12 +48,10 @@ public class Worker implements Serializable {
 	public Double getDailyIncome() {
 		return dailyIncome;
 	}
+
 	public void setDailyIncome(Double dailyIncome) {
 		this.dailyIncome = dailyIncome;
 	}
-	
-	
-	
 
 	@Override
 	public int hashCode() {
@@ -79,9 +77,4 @@ public class Worker implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-
 }
